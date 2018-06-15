@@ -10,7 +10,7 @@ pip install parse
 
 python manage.py runserver
 
-# back
+# front
 Download Node.js and npm and install
 cd datavisualization-front
 

@@ -1,0 +1,68 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <mat-toolbar-row>
+    <a href = "/">TIOBE Index</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class = "container">
+
+  <fusioncharts
+    [id]="chartId"
+    [width]="width"
+    [height]="height"
+    [type]="type"
+    [dataFormat]="dataFormat"
+    [dataSource]="dataSource">
+  </fusioncharts>
+
+
+  <mat-card class="card">
+
+    <form (ngSubmit)="submitEvent()" class="inline" [formGroup]="eventForm">
+        <h4>Add an event to the chart</h4>
+    
+        <!-- - - - Name - - - -->
+        <div>
+            <mat-form-field class = "full-width">
+              <input matInput formControlName="name" placeholder="Name"/>
+            </mat-form-field>
+        </div>
+
+        <!-- - - - Date - - - -->
+        <mat-form-field>
+          <input matInput [matDatepicker]="dp" [min]="minDate" [max]="maxDate" placeholder="Month and Year" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp
+                          startView="multi-year"
+                          (yearSelected)="chosenYearHandler($event)"
+                          (monthSelected)="chosenMonthHandler($event, dp)"
+                          panelClass="month-picker">
+          </mat-datepicker>
+        </mat-form-field>
+
+        <!-- - - - Type - - - -->
+        <div>
+          <mat-radio-group class="radio-group" [(ngModel)]="chosenType" [ngModelOptions]="{standalone: true}">
+            <mat-radio-button class="radio-button" *ngFor="let eventType of eventTypes" [value]="eventType">
+              {{eventType}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+    
+        <div class="submit_button">
+          <button mat-ripple mat-raised-button class="inline" type="submit" color = "primary">Add</button>
+        </div>
+      </form>
+    </mat-card>
+
+  <mat-card class="card">
+    <h4>Remove events<br> from the chart</h4>
+    <button mat-raised-button color="primary" class="inline right" (click) = 'clearLines()'>Clear</button>
+  </mat-card>
+
+  <mat-card class="card">
+    <h4>Save all events<br> in the database</h4>
+    <button mat-raised-button color="primary" class="inline right" (click) = 'saveEvents()'>Save</button>
+  </mat-card>
+</div>
+

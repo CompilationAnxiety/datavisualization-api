@@ -1,0 +1,55 @@
+
+.container {
+    margin: 50px 0px 300px 30px;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.radio-group {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+  .radio-button {
+    margin: 5px;
+  }
+  
+  .selected-value {
+    margin: 5px 0;
+  }
+
+  .card {
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    max-width: 250px;
+  }
+
+  h4{
+      margin:0 0 20px 0;
+      padding:0;
+  }
+
+  .submit_button{
+      margin-top: 20px;
+  }
+
+  .clear_button{
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .month-picker .mat-calendar-period-button {
+    pointer-events: none;
+  }
+  
+  .month-picker .mat-calendar-arrow {
+    display: none;
+  }

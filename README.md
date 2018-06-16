@@ -8,6 +8,8 @@ pip install requests<br>
 pip install bs4<br>
 pip install parse<br>
 
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
 
 # front
